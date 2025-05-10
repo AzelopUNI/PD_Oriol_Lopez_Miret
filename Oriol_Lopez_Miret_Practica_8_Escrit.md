@@ -1,20 +1,10 @@
-> **Objetivo de la Practica 6** Mediante el `ESP32-S3` y el protocolo `SPI` conectar un periferico **SD** y **RFID-RC522**
+> **Objetivo de la Practica 8** Mediante el `ESP32-S3` haremos una *comunicación serie asincrona* **usart**.
 
-# Primera Parte
-La primera parte de la práctica, mediante la placa **ESP32-S3** conectaremos un periferico **SD** mediante el protocolo _SPI_. Utilizamos las librerias `SPI.H` y `SD.h`.
-Dentro del codigo, tenemos que _especificar_ que archivo vamos ha _leer_ y al ejecutar el codigo nos tendrá que salir que nos hemos conectado _correctamente_.
+Mediante la placa **ESP32-S3** realizaremos un **bucle de comunicacion**. Mandaremos los datos por el terminal `rxd0` que se redirijan a la `uart 2 txd2`, y la recepcion de los datos de la `uart2` se reenvien de nuevo a la salida `txd0`.
+Esto hace que los _datos_ que enviamos, se **reenvien** a la _pantalla del terminal_ permitiendo _escrivir_ en el terminal de 'PlatformIO'.
 
- ![Foto_6_1_Display](Fotos_Pràctica_6_PD/Foto_6_1_Disp.jpg)
-> Como se puede observar en la _foto de montaje_, al estar usando el **bus SPI**, podemos observar como 2 de los _seis_ cables són la conección **Maestro-Esclavo (MOSI)** y **Esclavo-Maestro (MISO)** siendo la característica principal de los _buses SPI_,
-> y el resto siendo el **Reloj (CLK)** el **VIN, GND, y el SS**.
+ ![Foto_2](Fotos_Pràctica_8_PD/Foto_2.jpg)
+> Como se puede observar en la _foto del terminal_, Podemos escrivir en el terminal usando la 'ESP32-S3'
 
- ![Foto_6_1_Montaje](Fotos_Pràctica_6_PD/Foto_6_1_Perif.jpg)
-
-# Segunda Parte
-En esta segunda parte, tenemos que hacer _exactamente_ lo mismo que en la [Primera Parte](##Primera-Parte), solo que utilizando el **RFID-RC522**. Mediante las librerias `SPI.h` y  `MFRC522.h`, en este caso, nos tiene que salir el **UID** de la _tarjeta / llavero_ que le acerquemos an el terminal.
-
-![Foto_6_2_Display](Fotos_Pràctica_6_PD/Foto_6_2_Disp.jpg)
-
-> Al estar utilizando el **bus SPI**, las conecciones són identicas a las de la [Primera Parte](##Primera-Parte).
-
-![Foto_6_2_Montaje](Fotos_Pràctica_6_PD/Foto_6_2_Perif.jpg)
+ ![Foto_1](Fotos_Pràctica_8_PD/Foto_1.jpg)
+ >Como se puede observar en la _foto del montaje_, si _desconectamos_ el cable la comunicacion se pierde, no pudiendo escrivir en el **terminal**.
